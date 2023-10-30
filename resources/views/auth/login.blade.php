@@ -10,13 +10,12 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
+                  <img src="{{ asset('NiceAdmin/assets/img/logo.png') }}" alt="">
                   <span class="d-none d-lg-block">NiceAdmin</span>
                 </a>
               </div><!-- End Logo -->
 
               <div class="card mb-3">
-
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
@@ -24,13 +23,14 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}">
+                    @csrf
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Email</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="username" class="form-control @error('email') is-invalid @enderror" id="yourUsername" value="{{ old('email') }}" required>
+                        <div class="invalid-feedback">Please enter your Email.</div>
                       </div>
                     </div>
 
