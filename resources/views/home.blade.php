@@ -13,7 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    @can('Admin')
+                    <p>aku admin</p>
+                    @endcan
+                    @can('User')
+                    <p>aku user</p>
+                    @endcan
                     {{ __('You are logged in!') }}
                 </div>
             </div>
