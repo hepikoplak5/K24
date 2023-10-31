@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/DTuser', [App\Http\Controllers\HomeController::class, 'datauser'])->name('DTuser');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 
@@ -23,3 +25,4 @@ Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile']);
 Route::post('/edit-profile', [App\Http\Controllers\HomeController::class, 'edit-profile']);
 Route::post('/delete-profile', [App\Http\Controllers\HomeController::class, 'delete-profile']);
 
+// Route::resource('/','HomeController');
