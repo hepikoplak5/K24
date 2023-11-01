@@ -19,9 +19,9 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="/pp/{{Auth::user()->foto }}" alt="Profile" class="rounded-circle">
-              <h2>{{ Auth::user()->name }}</h2>
-              <h3>{{ Auth::user()->username }}</h3>
+              <img src="/pp/{{$user->foto }}" alt="Profile" class="rounded-circle">
+              <h2>{{ $user->name }}</h2>
+              <h3>{{ $user->username }}</h3>
             </div>
           </div>
 
@@ -51,27 +51,27 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->name }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->name }}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">No. KTP</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->noktp }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->noktp }}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Tanggal Lahir</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->tgl_lahir }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->tgl_lahir }}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->nohp }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->nohp }}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">{{ Auth::user()->email }}</div>
+                    <div class="col-lg-9 col-md-8">{{ $user->email }}</div>
                   </div>
 
                 </div>
@@ -79,62 +79,62 @@
                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                   <!-- Profile Edit Form -->
-                  <form class="form" action="/edit" method="POST" enctype="multipart/form-data">
+                  <form class="form" action="/edit-user" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="" name="id" value="{{ Auth::user()->id }}" hidden>
+                    <input type="" name="id" value="{{ $user->id }}" hidden>
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="/pp/{{Auth::user()->foto }}" alt="Profile">
+                        <img src="/pp/{{$user->foto }}" alt="Profile">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Upload new foto</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="foto" type="file" class="form-control" id="fullName" value="{{ Auth::user()->name }}">
+                        <input name="foto" type="file" class="form-control" id="fullName" value="{{ $user->name }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="name" type="text" class="form-control" id="fullName" value="{{ Auth::user()->name }}">
+                        <input name="name" type="text" class="form-control" id="fullName" value="{{ $user->name }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">Username</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="username" type="text" class="form-control" id="company" value="{{ Auth::user()->username }}">
+                        <input name="username" type="text" class="form-control" id="company" value="{{ $user->username }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="company" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="company" value="{{ Auth::user()->email }}">
+                        <input name="email" type="email" class="form-control" id="company" value="{{ $user->email }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Job" class="col-md-4 col-lg-3 col-form-label">No. HP</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="nohp" type="text" class="form-control" id="Job" value="{{ Auth::user()->nohp }}">
+                        <input name="nohp" type="text" class="form-control" id="Job" value="{{ $user->nohp }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Country" class="col-md-4 col-lg-3 col-form-label">No. KTP</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="noktp" type="text" class="form-control" id="Country" value="{{ Auth::user()->noktp }}" disabled>
+                        <input name="noktp" type="text" class="form-control" id="Country" value="{{ $user->noktp }}" disabled>
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Address" class="col-md-4 col-lg-3 col-form-label">Tanggal lahir</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="tgl_lahir" type="date" class="form-control" id="Address" value="{{ Auth::user()->tgl_lahir }}">
+                        <input name="tgl_lahir" type="date" class="form-control" id="Address" value="{{ $user->tgl_lahir }}">
                       </div>
                     </div>
 
@@ -151,32 +151,7 @@
           </div>
 
         </div>
-        @can('Admin')
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Data User</h5>
 
-              <!-- Table with stripped rows -->
-              <table class="table" id="example">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">No. KTP</th>
-                    <th scope="col">No. HP</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                </tbody>
-              </table>
-              <!-- End Table with stripped rows -->
-
-            </div>
-        </div>
-        @endcan
       </div>
 
     </section>

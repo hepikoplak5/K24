@@ -38,17 +38,4 @@ class UserController extends Controller
 	        return redirect()->route('register')->with(['error' => 'Data Gagal Disimpan!']);
 	    }
 	}
-
-    public function update(Request $request, $id)
-    {
-        $user = User::find($request->id);
-    }
-
-    public function destroy($id)
-    {
-        $user = User::find($id);
-        Storage::disk('pp')->delete(''.$user->foto);
-        $user->delete();
-        return redirect('/');
-    }
 }

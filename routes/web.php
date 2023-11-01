@@ -24,8 +24,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->nam
 
 Route::post('/regis', [App\Http\Controllers\UserController::class, 'register'])->name('regis');
 
-Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile']);
-Route::post('/edit-user', [App\Http\Controllers\HomeController::class, 'edit-profile']);
-Route::get('/delete-user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::post('/edit', [App\Http\Controllers\HomeController::class, 'update1']);
 
-// Route::resource('/','HomeController');
+Route::group(['middleware' => ['role:Admin']], function () {
+    Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile']);
+	Route::post('/edit-user', [App\Http\Controllers\HomeController::class, 'update']);
+	Route::get('/delete-user/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
+});

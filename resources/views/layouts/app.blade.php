@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>K24 Test Herrys A.R.</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -78,7 +78,7 @@
             {
                 "data": null,
                 "render": function (data, type, row) {
-                    return '<a href="/edit-user/'+ data.id +'"><button class="delete-button btn btn-outline-warning">Edit</button></a><a href="/delete-user/'+ data.id +'"><button class="delete-button btn btn-outline-danger">Delete</button></a>';
+                    return '<a href="/profile/'+ data.id +'"><button class="delete-button btn btn-outline-warning">Edit</button></a><a href="/delete-user/'+ data.id +'"><button class="delete-button btn btn-outline-danger">Delete</button></a>';
                 }
             }
         ]
