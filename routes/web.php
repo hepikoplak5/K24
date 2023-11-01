@@ -26,8 +26,11 @@ Route::post('/regis', [App\Http\Controllers\UserController::class, 'register'])-
 
 Route::post('/edit', [App\Http\Controllers\HomeController::class, 'update1']);
 
+Route::post('/password', [App\Http\Controllers\HomeController::class, 'pass1']);
+
 Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile']);
 	Route::post('/edit-user', [App\Http\Controllers\HomeController::class, 'update']);
+	Route::post('/pass', [App\Http\Controllers\HomeController::class, 'pass']);
 	Route::get('/delete-user/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
 });

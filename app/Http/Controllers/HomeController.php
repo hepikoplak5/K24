@@ -65,6 +65,28 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function pass(Request $request)
+    {
+        $user = User::find($request->id);
+            
+        $user->update([
+            'password'     => bcrypt($request->password)
+        ]);
+    
+        return redirect()->back();
+    }
+
+    public function pass1(Request $request)
+    {
+        $user = User::find($request->id);
+            
+        $user->update([
+            'password'     => bcrypt($request->password)
+        ]);
+    
+        return redirect()->back();
+    }
+
     public function update1(Request $request)
     {
         // dd($request->id);

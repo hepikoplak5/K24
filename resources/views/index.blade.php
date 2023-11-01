@@ -42,6 +42,10 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Edit Profile</button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                </li>
+
               </ul>
               <div class="tab-content pt-2">
 
@@ -142,6 +146,25 @@
                       <button type="submit" class="btn btn-primary">Save Changes</button>
                     </div>
                   </form><!-- End Profile Edit Form -->
+
+                </div>
+
+                <div class="tab-pane fade pt-3" id="profile-change-password">
+                  <!-- Change Password Form -->
+                  <form action="/password" method="post">
+                    @csrf
+                    <input type="" name="id" value="{{ Auth::user()->id }}" hidden>
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password" type="password" class="form-control" id="currentPassword">
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-primary">Change Password</button>
+                    </div>
+                  </form><!-- End Change Password Form -->
 
                 </div>
 
