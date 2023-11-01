@@ -7,9 +7,7 @@
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
+          <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -24,12 +22,6 @@
               <img src="/pp/{{Auth::user()->foto }}" alt="Profile" class="rounded-circle">
               <h2>{{ Auth::user()->name }}</h2>
               <h3>{{ Auth::user()->username }}</h3>
-              <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              </div>
             </div>
           </div>
 
@@ -58,8 +50,6 @@
               <div class="tab-content pt-2">
 
                 <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <h5 class="card-title">About</h5>
-                  <p class="small fst-italic">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</p>
 
                   <h5 class="card-title">Profile Details</h5>
 
@@ -97,7 +87,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/profile-img.jpg" alt="Profile">
+                        <img src="/pp/{{Auth::user()->foto }}" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -109,13 +99,6 @@
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="fullName" type="text" class="form-control" id="fullName" value="Kevin Anderson">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="about" class="col-md-4 col-lg-3 col-form-label">About</label>
-                      <div class="col-md-8 col-lg-9">
-                        <textarea name="about" class="form-control" id="about" style="height: 100px">Sunt est soluta temporibus accusantium neque nam maiores cumque temporibus. Tempora libero non est unde veniam est qui dolor. Ut sunt iure rerum quae quisquam autem eveniet perspiciatis odit. Fuga sequi sed ea saepe at unde.</textarea>
                       </div>
                     </div>
 
@@ -237,8 +220,7 @@
         @can('Admin')
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables</h5>
-              <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable</p>
+              <h5 class="card-title">Data User</h5>
 
               <!-- Table with stripped rows -->
               <table class="table" id="example">
@@ -246,10 +228,10 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">No. KTP</th>
+                    <th scope="col">No. HP</th>
+                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
