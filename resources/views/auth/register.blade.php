@@ -24,17 +24,17 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" method="POST" action="{{ route('register') }}">
+                  <form class="row g-3 needs-validation" method="POST" action="{{ route('regis') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="col-6">
                       <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <input type="text" name="name" class="form-control" id="yourName" >
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <input type="email" name="email" class="form-control" id="yourEmail" >
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                     </div>
 
@@ -42,7 +42,7 @@
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <input type="text" name="username" class="form-control" id="yourUsername" >
                         <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>
@@ -51,27 +51,34 @@
                       <label for="nohp" class="form-label">No. HP</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">+62</span>
-                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" required>
+                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" >
                         <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>
 
                     <div class="col-6">
                       <label for="noktp" class="form-label">No. KTP</label>
-                      <input type="text" name="noktp" class="form-control" id="noktp" required>
+                      <input type="text" name="noktp" class="form-control" id="noktp" >
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                      <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" required>
+                      <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" >
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <input type="password" name="password" class="form-control" id="yourPassword" >
                       <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <div class="col-6">
+                      <label for="inputNumber" class="form-label">File Upload</label>
+                      <div class="col-sm-12">
+                        <input class="form-control" type="file" name="foto" id="formFile">
+                      </div>
                     </div>
 
                     <div class="col-12">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,10 @@ Route::get('/DTuser', [App\Http\Controllers\HomeController::class, 'datauser'])-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index2'])->name('home');
 
+Route::post('/regis', [App\Http\Controllers\UserController::class, 'register'])->name('regis');
+
 Route::get('/profile', [App\Http\Controllers\HomeController::class, 'profile']);
-Route::post('/edit-profile', [App\Http\Controllers\HomeController::class, 'edit-profile']);
-Route::post('/delete-profile', [App\Http\Controllers\HomeController::class, 'delete-profile']);
+Route::post('/edit-user', [App\Http\Controllers\HomeController::class, 'edit-profile']);
+Route::get('/delete-user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 
 // Route::resource('/','HomeController');

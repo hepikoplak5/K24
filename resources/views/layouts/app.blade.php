@@ -78,7 +78,7 @@
             {
                 "data": null,
                 "render": function (data, type, row) {
-                    return '<a href="/edit-user/'+ data.id +'"><button class="delete-button btn btn-outline-warning" data-id="' + data.id + '">Edit</button></a><a href="/delete-user/'+ data.id +'"><button class="delete-button btn btn-outline-danger" data-id="' + data.id + '">Delete</button></a>';
+                    return '<a href="/edit-user/'+ data.id +'"><button class="delete-button btn btn-outline-warning">Edit</button></a><a href="/delete-user/'+ data.id +'"><button class="delete-button btn btn-outline-danger">Delete</button></a>';
                 }
             }
         ]
