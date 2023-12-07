@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 
 class RegisterController extends Controller
 {
@@ -50,9 +52,21 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name'      => ['required', 'string', 'max:255'],
+            'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username'  => ['required', 'string', 'max:255', 'unique:users'],
+            'noktp'     => ['required', 'numeric', 'unique:users'],
+            'nohp'      => ['required', 'numeric', 'unique:users'],
+            'password'  => ['required', 'string', 'min:8'],
+            'foto'      => ['required', 'image', 'max:1024']
+        ],[
+            'email.unique' => 'Email sudah dipakai!',
+            'username.unique' => 'Username sudah dipakai!',
+            'noktp.numeric' => 'Isi nomor KTP menggunakan angka!',
+            'noktp.unique' => 'Nomor KTP sudah dipakai!',
+            'nohp.numeric' => 'Isi nomor HP menggunakan angka!',
+            'nohp.unique' => 'Nomor HP sudah dipakai!',
+            'foto.max'      => 'Ukuran file tidak boleh melebihi 1MB!',
         ]);
     }
 
@@ -65,14 +79,20 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        // dd($data);
+        if ($data['foto']) {
+            $extension = $data['foto']->extension();
+            Storage::disk('pp')->put($data['noktp'].'.'.$extension, file_get_contents($data['foto']));
+        }
+        
         return User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'noktp' => $data['noktp'],
+            'name'      => $data['name'],
+            'username'  => $data['username'],
+            'email'     => $data['email'],
+            'nohp'      => '62'.$data['nohp'],
+            'noktp'     => $data['noktp'],
             'tgl_lahir' => $data['tgl_lahir'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password'  => Hash::make($data['password']),
+            'foto'      => $data['noktp'].'.'.$extension
         ]);
     }
 }

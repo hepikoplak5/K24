@@ -24,26 +24,34 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" method="POST" action="{{ route('regis') }}" enctype="multipart/form-data">
+                  <form class="row g-3 needs-validation" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate="">
                     @csrf
+                    @if (count($errors) > 0)
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @foreach ($errors->all() as $error)
+                          {{ $error }}<br>
+                        @endforeach
+                      </div>
+                    @endif
+
                     <div class="col-6">
                       <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" >
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <input type="text" name="name" class="form-control" id="yourName" value="hepi" required>
+                      <div class="invalid-feedback">Tolong masukkan nama anda!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" >
-                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                      <input type="email" name="email" class="form-control" id="yourEmail" value="hepi@gmail.com" required>
+                      <div class="invalid-feedback">Tolong masukkan email yang valid!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" >
-                        <div class="invalid-feedback">Please choose a username.</div>
+                        <input type="text" name="username" class="form-control" id="yourUsername" value="hepi" required>
+                        <div class="invalid-feedback">Tolong masukkan username anda!</div>
                       </div>
                     </div>
 
@@ -51,26 +59,26 @@
                       <label for="nohp" class="form-label">No. HP</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">+62</span>
-                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" >
-                        <div class="invalid-feedback">Please choose a username.</div>
+                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" value="81312341234" required>
+                        <div class="invalid-feedback">Tolong masukkan Nomor HP anda!</div>
                       </div>
                     </div>
 
                     <div class="col-6">
                       <label for="noktp" class="form-label">No. KTP</label>
-                      <input type="text" name="noktp" class="form-control" id="noktp" >
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <input type="text" name="noktp" class="form-control" id="noktp" value="1234567890123456" required>
+                      <div class="invalid-feedback">Tolong masukkan Nomor KTP anda!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
-                      <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" >
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <input type="date" name="tgl_lahir" class="form-control" id="tgl_lahir" required>
+                      <div class="invalid-feedback">Tolong masukkan tanggal lahir anda!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" >
+                      <input type="password" name="password" class="form-control" id="yourPassword" value="12345678" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 

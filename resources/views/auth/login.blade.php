@@ -23,14 +23,14 @@
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}">
+                  <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}" novalidate>
                     @csrf
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Email</label>
+                      <label for="yourUsername" class="form-label">Email/Username</label>
                       <div class="input-group has-validation">
                         <input type="text" name="username" class="form-control @error('email') is-invalid @enderror" id="yourUsername" value="{{ old('email') }}" required>
-                        <div class="invalid-feedback">Please enter your Email.</div>
+                        <div class="invalid-feedback">Please enter your Email or Username!</div>
                       </div>
                     </div>
 
@@ -45,9 +45,6 @@
                     </div>
                     <div class="col-6">
                       <p class="small mb-0">Don't have account? <a href="{{ route('register') }}">Create an account</a></p>
-                    </div>
-                    <div class="col-5">
-                      <p class="small mb-0">Forgot Password? <a href="{{ route('password.request') }}">Change Password</a></p>
                     </div>
                   </form>
 

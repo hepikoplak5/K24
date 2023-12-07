@@ -31,6 +31,18 @@
 
           <div class="card">
             <div class="card-body pt-3">
+              @if (count($errors) > 0)
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                  @endforeach
+                </div>
+              @endif
+              @if(session('message'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ session('message') }}
+                  </div>
+              @endif
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
 
@@ -158,6 +170,12 @@
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
                       <div class="col-md-8 col-lg-9">
                         <input name="password" type="password" class="form-control" id="currentPassword">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Re New Password</label>
+                      <div class="col-md-8 col-lg-9">
+                        <input name="password_confirmation" type="password" class="form-control" id="currentPassword">
                       </div>
                     </div>
 
