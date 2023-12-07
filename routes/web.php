@@ -32,5 +32,6 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/profile/{id}', [App\Http\Controllers\HomeController::class, 'profile']);
 	Route::post('/edit-user', [App\Http\Controllers\HomeController::class, 'update']);
 	Route::post('/pass', [App\Http\Controllers\HomeController::class, 'pass']);
-	Route::get('/delete-user/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
+	// Route::get('/delete-user/{id}', [App\Http\Controllers\HomeController::class, 'destroy']);
+	Route::post('/delete-profile', [App\Http\Controllers\HomeController::class, 'destroy']);
 });

@@ -45,6 +45,27 @@
   @yield('content')
   @include('layouts.footer')
 
+  <div class="modal modal-blur fade" id="modal-small" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+          <form action="/delete-profile" method="post">
+          @csrf
+              <div class="modal-content">
+                  <div class="modal-body">
+                  <div class="modal-title mb-3"><strong>Apakah anda yakin?</strong></div>
+                  <p id="confirmation_delete"></p>
+                  <input id="delete_profile" class="form-control" type="" name="id" hidden>
+                  </div>
+                  <div class="modal-footer">
+                  <a href="" class="btn btn-link link-secondary me-auto" data-bs-dismiss="modal">Batal</a>
+                  <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Hapus</button>
+                  </div>
+              </div>
+              
+          </form>
+      
+      </div>
+  </div>
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
@@ -78,12 +99,20 @@
             {
                 "data": null,
                 "render": function (data, type, row) {
-                    return '<a href="/profile/'+ data.id +'"><button class="delete-button btn btn-outline-warning">Edit</button></a><a href="/delete-user/'+ data.id +'"><button class="delete-button btn btn-outline-danger">Delete</button></a>';
+                    return '<a href="/profile/'+ data.id +'"><button class="delete-button btn btn-outline-warning">Edit</button></a> <a class="ml-1 btnid delete-button btn btn-outline-danger" onclick="myFunction(this)" data-id="'+ data.id +'" data-name="'+ data.name +'" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modal-small">Delete</a>';
                 }
             }
         ]
     });
 });
+</script>
+<script>
+    function myFunction(element) {
+        var dataId = element.getAttribute('data-id');
+        var dataname = element.getAttribute('data-name');
+        $("#modal-small #delete_profile").val( dataId );
+        $("#modal-small #confirmation_delete").text( 'Apakah anda yakin untuk menghapus '+dataname+' ?' );
+    }
 </script>
 
 </body>
