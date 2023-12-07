@@ -40,7 +40,8 @@ class HomeController extends Controller
 
     public function datauser()
     {
-        $data = User::all();
+        // $data = User::all();
+        $data = User::where();
 
         return response()->json($data);
     }
@@ -139,12 +140,21 @@ class HomeController extends Controller
         return redirect()->back()->with('message', 'Data anda berhasil diganti!');
     }
 
-    public function destroy($id)
+    public function destroy(request $request)
     {
-        $user = User::find($id);
+        $user = User::where('email', $request->email);
         Storage::disk('pp')->delete(''.$user->foto);
         $user->delete();
 
         return redirect('/');
     }
+
+    // public function destroy($id)
+    // {
+    //     $user = User::find($id);
+    //     Storage::disk('pp')->delete(''.$user->foto);
+    //     $user->delete();
+
+    //     return redirect('/');
+    // }
 }
