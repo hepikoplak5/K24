@@ -36,13 +36,13 @@
 
                     <div class="col-6">
                       <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="yourName" value="hepi" required>
+                      <input type="text" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Tolong masukkan nama anda!</div>
                     </div>
 
                     <div class="col-6">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input type="email" name="email" class="form-control" id="yourEmail" value="hepi@gmail.com" required>
+                      <input type="email" name="email" class="form-control" id="yourEmail" required>
                       <div class="invalid-feedback">Tolong masukkan email yang valid!</div>
                     </div>
 
@@ -50,7 +50,7 @@
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" value="hepi" required>
+                        <input type="text" name="username" class="form-control" id="yourUsername" required>
                         <div class="invalid-feedback">Tolong masukkan username anda!</div>
                       </div>
                     </div>
@@ -59,14 +59,14 @@
                       <label for="nohp" class="form-label">No. HP</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">+62</span>
-                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" value="81312341234" required>
+                        <input type="text" name="nohp" class="form-control" id="nohp" placeholder="81312341234" required>
                         <div class="invalid-feedback">Tolong masukkan Nomor HP anda!</div>
                       </div>
                     </div>
 
                     <div class="col-6">
                       <label for="noktp" class="form-label">No. KTP</label>
-                      <input type="text" name="noktp" class="form-control" id="noktp" value="1234567890123456" required>
+                      <input type="text" name="noktp" class="form-control" id="noktp" required>
                       <div class="invalid-feedback">Tolong masukkan Nomor KTP anda!</div>
                     </div>
 
@@ -78,7 +78,7 @@
 
                     <div class="col-6">
                       <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" value="12345678" required>
+                      <input type="password" name="password" class="form-control" id="yourPassword" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
