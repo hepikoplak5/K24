@@ -20,7 +20,6 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="/pp/{{$user->foto }}" alt="Profile" class="rounded-circle">
-              <h2>{{ $user->name }}</h2>
               <h3>{{ $user->username }}</h3>
             </div>
           </div>

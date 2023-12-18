@@ -168,6 +168,9 @@ class HomeController extends Controller
     public function destroy(request $request)
     {
         $user = User::find($request->id);
+        if ($user->id=='1') {
+            return redirect()->back()->with('message', 'Data Admin tidak boleh dihapus!');            
+        }
         Storage::disk('pp')->delete(''.$user->foto);
         $user->delete();
 
