@@ -31,6 +31,18 @@
 
           <div class="card">
             <div class="card-body pt-3">
+              @if (count($errors) > 0)
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  @foreach ($errors->all() as $error)
+                    {{ $error }}<br>
+                  @endforeach
+                </div>
+              @endif
+              @if(session('message'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{ session('message') }}
+                  </div>
+              @endif
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
 
