@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        //premission name for assigned to each role
+        //you need to define the permission first and then assign the permission to the role below
         $permissions = [
             'Admin',
             'User'
@@ -25,6 +27,8 @@ class DatabaseSeeder extends Seeder
               Permission::create(['name' => $permission]);
          }
 
+        //this is the role
+        //after you define each role with the permission, you can assign the role to each data user
         Role::create(['name' => 'Admin'])->givePermissionTo('Admin');
         Role::create(['name' => 'User'])->givePermissionTo('User');
 
@@ -36,7 +40,7 @@ class DatabaseSeeder extends Seeder
             'noktp' => '3517090512010003', 
             'email' => 'admin@gmail.com',
             'password' => bcrypt('12345678')
-        ])->assignRole('Admin');
+        ])->assignRole('Admin'); //this is how to assign
 
         User::create([
             'name' => 'User', 

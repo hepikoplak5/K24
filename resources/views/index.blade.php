@@ -192,6 +192,8 @@
           </div>
 
         </div>
+        <!-- this is the example for using permission of Admin -->
+        <!-- when you define @can ... @end can, user without admin role will not see this section -->
         @can('Admin')
         <div class="card">
             <div class="card-body">
