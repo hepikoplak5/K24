@@ -1,4 +1,4 @@
-# K24-TestKerja-PHPDeveloper
+# Project Herrys : Login, register, and role with spatie
 
 This is laravel 10 with complate login feature including spatie
 
